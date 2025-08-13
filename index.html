@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pakistan Zindabad | Greeting Card</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --pk-green: #115740;
+            --pk-green-2: #0a3a2a;
+            --pk-white: #ffffff;
+            --accent: #00c389;
+            --gold: #e0c200;
+        }
+
+        html,
+        body {
+            height: 100%;
+            background: radial-gradient(80% 80% at 50% 20%, #0d2d22 0%, #071a14 60%, #03100c 100%);
+            color: var(--pk-white);
+        }
+
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            opacity: .25;
+            background-image: radial-gradient(#ffffff 1px, transparent 1px);
+            background-size: 3px 3px;
+            background-position: 0 0;
+            animation: twinkle 10s linear infinite;
+        }
+
+        @keyframes twinkle {
+            0% {
+                opacity: .15
+            }
+
+            50% {
+                opacity: .35
+            }
+
+            100% {
+                opacity: .15
+            }
+        }
+
+
+        .flag-banner {
+            position: relative;
+            overflow: hidden;
+            border-bottom: 2px solid rgba(255, 255, 255, .15);
+            background: linear-gradient(90deg, var(--pk-white) 0 18%, var(--pk-green) 18% 100%);
+            height: 240px;
+            display: grid;
+            place-items: center;
+            box-shadow: inset 0 -12px 30px rgba(0, 0, 0, .25);
+            isolation: isolate;
+        }
+
+
+        .flag-banner::after {
+            content: "";
+            position: absolute;
+            inset: -40px -20px -20px -20px;
+            mix-blend-mode: soft-light;
+            opacity: .5;
+            background: repeating-radial-gradient(circle at 0 50%, rgba(255, 255, 255, .15) 0 8px, rgba(255, 255, 255, 0) 8px 16px),
+                repeating-linear-gradient(-10deg, rgba(255, 255, 255, .08) 0 12px, rgba(255, 255, 255, 0) 12px 24px);
+            animation: wave 5s ease-in-out infinite;
+        }
+
+        @keyframes wave {
+
+            0%,
+            100% {
+                transform: translateY(0)
+            }
+
+            50% {
+                transform: translateY(10px)
+            }
+        }
+
+
+        .crescent {
+            position: absolute;
+            right: 10%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 140px;
+            height: 140px;
+        }
+
+        .crescent::before,
+        .crescent::after {
+            content: "";
+            position: absolute;
+            border-radius: 50%;
+        }
+
+        .crescent::before {
+
+            width: 140px;
+            height: 140px;
+            background: var(--pk-white);
+            left: 0;
+            top: 0;
+            box-shadow: 0 0 24px rgba(255, 255, 255, .35);
+        }
+
+        .crescent::after {
+
+            width: 140px;
+            height: 140px;
+            background: linear-gradient(90deg, transparent 0 18%, var(--pk-green) 18% 100%);
+            left: 26px;
+            top: -10px;
+            filter: blur(.2px);
+        }
+
+        .star {
+            position: absolute;
+            right: 6%;
+            top: 26%;
+            width: 0;
+            height: 0;
+            filter: drop-shadow(0 0 12px rgba(255, 255, 255, .75));
+        }
+
+        .star::before {
+            content: "\2605";
+            /* ★ */
+            color: var(--pk-white);
+            font-size: 58px;
+            display: block;
+            transform: rotate(18deg);
+        }
+
+
+        .hero-title {
+            font-weight: 800;
+            letter-spacing: .5px;
+            text-shadow: 0 2px 18px rgba(0, 0, 0, .6);
+        }
+
+        .tagline {
+            opacity: .9
+        }
+
+        .ribbon {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(90deg, #0c2e23, #134c38);
+            border-top: 1px solid rgba(255, 255, 255, .12);
+            border-bottom: 1px solid rgba(255, 255, 255, .12);
+        }
+
+        .ribbon .slide {
+            display: inline-block;
+            white-space: nowrap;
+            padding-block: .5rem;
+            font-weight: 600;
+            letter-spacing: .8px;
+            animation: slide 30s linear infinite;
+        }
+
+        @keyframes slide {
+            from {
+                transform: translateX(0)
+            }
+
+            to {
+                transform: translateX(-50%)
+            }
+        }
+
+
+        .photo-card {
+            background: rgba(255, 255, 255, .06);
+            border: 1px solid rgba(255, 255, 255, .12);
+            backdrop-filter: blur(6px);
+        }
+
+        .photo-card img {
+            width: 100%;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            border-radius: 1rem;
+            border: 3px solid rgba(255, 255, 255, .6);
+        }
+
+        .pic-t {
+            color: var(--pk-white);
+        }
+
+        .pic-t2 {
+            color: var(--pk-green);
+        }
+
+        .shine-btn {
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, .3);
+        }
+
+        .shine-btn::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            transform: translateX(-120%);
+            background: linear-gradient(110deg, transparent 40%, rgba(255, 255, 255, .6), transparent 60%);
+            animation: sheen 3.8s ease-in-out infinite;
+        }
+
+        @keyframes sheen {
+            to {
+                transform: translateX(120%)
+            }
+        }
+
+        /* Fireworks canvas sits on top */
+        #fireworks {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        footer {
+            font-size: .95rem;
+            opacity: .9
+        }
+    </style>
+</head>
+
+<body>
+<canvas id="fireworks"></canvas>
+
+ <section class="flag-banner">
+    <div class="text-center px-3">
+        <h1 class="display-5 hero-title">Pakistan Zindabad! 🇵🇰</h1>
+        <p class="lead tagline">Celebrating our culture, heritage & the spirit of Independence.</p>
+        <button id="celebrateBtn" class="btn btn-success btn-lg mt-2 shine-btn"
+            style="background:var(--accent); border-color:transparent;">Celebrate Now</button>
+    </div>
+
+   
+    <img src="assets/cresent.moon.cvn.png" alt="Pakistan Flag" 
+         style="position:absolute; right:5%; top:50%; transform:translateY(-50%); 
+                width:140px; height:auto; box-shadow:0 0 20px rgba(255,255,255,0.5); border-radius:4px;">
+</section>
+
+
+
+    <div class="ribbon">
+        <div class="slide">
+            Truck Art • Qawwali • Biryani • Shalwar Qameez• Badshahi Mosque • ⛰️ K2 • 🌱 Green & White •
+            Mehrgarh to Modern • Miniature Art • Folk Music • Sherwani • Truck Art • Biryani • Fairy
+            Meadows •
+        </div>
+    </div>
+
+
+    <main class="container py-5">
+        <div class="row g-4 align-items-center">
+            <div class="col-lg-6">
+                <div class="card photo-card p-3">
+                    <div class="row g-3 align-items-center">
+                        <div class="col-5 col-md-4">
+
+                            <img id="myPhoto" src="assets/nazia.jpg.jpg" alt="Your Photo (Replace src)" />
+                        </div>
+                        <div class="pic-t col-7 col-md-8 white-text">
+                            <h2 class="h4 mb-1">Assalamu Alaikum!</h2>
+                            <p class="mb-2">My name is <strong>Nazia Danish</strong>. I am a student of
+                                <strong>SMIT</strong> and I love <strong>Saylani</strong> ❤️
+                            </p>
+                            <p class="small mb-3">SMIT is shaping my skills and guiding me toward success. Learning at SMIT is my first step toward a brighter future.</p>
+                            <div class="d-flex gap-2 flex-wrap">
+                                <span class="badge text-bg-success">#IndependenceDay</span>
+                                <span class="badge text-bg-light text-dark">#Pakistan</span>
+                                <span class="badge text-bg-warning">#Saylani</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 order-lg-first">
+                <div class="card photo-card p-3">
+                    <div class="row g-3 align-items-center">
+                        <div class="col-5 col-md-4 order-lg-2">
+
+                            <img id="quaidPhoto" src="assets/quaide-azam-2.jpeg"
+                                alt="Quaid-e-Azam Muhammad Ali Jinnah" />
+                        </div>
+                        <div class="pic-t col-7 col-md-8 order-lg-1">
+                            <h2 class="h4 mb-1">Quaid-e-Azam</h2>
+                            <p class="mb-2">Muhammad Ali Jinnah — Founder of Pakistan. His vision inspires our unity,
+                                faith, and discipline.</p>
+                            <p class="small mb-0">"Unity, Faith, Discipline– the key to our success."
+                                "Work, work and only work–the true path to the nation’s progress.
+                                "Toheed, Itehad, Iman"–our principles.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-5">
+            <button id="playAnthem" class="btn btn-outline-light btn-lg">Play Celebration Fireworks</button>
+            <p class="small mt-2 opacity-75">Tip: Click the buttons above for fireworks ✨</p>
+        </div>
+    </main>
+
+    <footer class="container pb-5 text-center">
+        <hr class="border-light border-opacity-25" />
+        <p class="mb-1">Designed with ❤️ for Pakistan by <strong>Nazia Danish</strong>.</p>
+        <p class="mb-0">May Allah bless our homeland. Pakistan Paindabad! 🇵🇰</p>
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+ 
+
+        (function () {
+            const canvas = document.getElementById('fireworks');
+            const ctx = canvas.getContext('2d');
+            let W, H, particles = [], rockets = [], running = false;
+
+            function resize() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
+            window.addEventListener('resize', resize); resize();
+
+            function rand(min, max) { return Math.random() * (max - min) + min; }
+
+            function Rocket() {
+                this.x = rand(W * 0.2, W * 0.8);
+                this.y = H + 10;
+                this.vx = rand(-1, 1); this.vy = rand(-12, -8);
+                this.color = `hsl(${rand(90, 160)}, 100%, 60%)`;
+                this.exploded = false;
+            }
+            Rocket.prototype.update = function () {
+                this.x += this.vx; this.y += this.vy; this.vy += 0.15;
+                if (this.vy >= -1 && !this.exploded) { this.explode(); }
+            }
+            Rocket.prototype.explode = function () {
+                this.exploded = true;
+                const count = 50;
+                for (let i = 0; i < count; i++) {
+                    const angle = (Math.PI * 2) * (i / count);
+                    particles.push(new Particle(this.x, this.y, angle, this.color));
+                }
+            }
+
+            function Particle(x, y, angle, color) {
+                this.x = x; this.y = y; this.vx = Math.cos(angle) * rand(1, 5); this.vy = Math.sin(angle) * rand(1, 5);
+                this.alpha = 1; this.color = color; this.life = rand(40, 80);
+            }
+            Particle.prototype.update = function () {
+                this.x += this.vx; this.y += this.vy; this.vy += 0.05; // gravity
+                this.vx *= 0.99; this.vy *= 0.99; // air drag
+                this.life--; this.alpha = Math.max(0, this.life / 80);
+            }
+
+            function loop() {
+                if (!running) return;
+                ctx.clearRect(0, 0, W, H);
+                // add rockets occasionally
+                if (Math.random() < 0.08) { rockets.push(new Rocket()); }
+                rockets = rockets.filter(r => !r.exploded);
+                rockets.forEach(r => { r.update(); ctx.fillStyle = r.color; ctx.fillRect(r.x, r.y, 2, 8); });
+
+                particles = particles.filter(p => p.life > 0);
+                particles.forEach(p => {
+                    p.update();
+                    ctx.globalAlpha = p.alpha;
+                    ctx.fillStyle = p.color;
+                    ctx.beginPath(); ctx.arc(p.x, p.y, 2, 0, Math.PI * 2); ctx.fill();
+                    ctx.globalAlpha = 1;
+                });
+                requestAnimationFrame(loop);
+            }
+
+            function start() { if (!running) { running = true; loop(); setTimeout(() => running = false, 10000); } }
+
+            document.getElementById('celebrateBtn').addEventListener('click', start);
+            document.getElementById('playAnthem').addEventListener('click', start);
+        })();
+    </script>
+
+
+</body>
+
+</html>
