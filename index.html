@@ -7,6 +7,7 @@
     <title>Pakistan Zindabad | Greeting Card</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
     <link rel="icon" href="assets/pakistani-FLg.jpg" type ="image/png" />
     <style>
         :root {
@@ -87,61 +88,111 @@
                 transform: translateY(10px)
             }
         }
+.flag-banner {
+    position: relative;
+    overflow: hidden;
+    border-bottom: 2px solid rgba(255, 255, 255, .15);
+    background: linear-gradient(90deg, var(--pk-white) 0 18%, var(--pk-green) 18% 100%);
+    min-height: 240px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1rem;
+    box-shadow: inset 0 -12px 30px rgba(0, 0, 0, .25);
+    isolation: isolate;
+    flex-wrap: wrap; /* small devices par elements wrap ho jayen */
+}
 
+.flag-banner img {
+    max-width: 120px;
+    height: auto;
+    position: static; 
+    transform: none;
+    margin-top: 1rem;
+}
 
-        .crescent {
-            position: absolute;
-            right: 10%;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 140px;
-            height: 140px;
-        }
+/* Common styles for all sizes */
+.flag-banner {
+    position: relative;
+    overflow: hidden;
+    border-bottom: 2px solid rgba(255, 255, 255, .15);
+    background: linear-gradient(90deg, var(--pk-white) 0 18%, var(--pk-green) 18% 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1rem;
+    box-shadow: inset 0 -12px 30px rgba(0, 0, 0, .25);
+    isolation: isolate;
+    flex-wrap: wrap;
+}
 
-        .crescent::before,
-        .crescent::after {
-            content: "";
-            position: absolute;
-            border-radius: 50%;
-        }
+.flag-banner img {
+    max-width: 120px;
+    height: auto;
+    margin-top: 1rem;
+}
 
-        .crescent::before {
+/* Small devices (max-width: 576px) */
+@media (max-width: 576px) {
+    .flag-banner {
+        flex-direction: column;
+        padding: 1rem;
+    }
+    .hero-title {
+        font-size: 1.3rem;
+    }
+    .tagline {
+        font-size: 0.9rem;
+    }
+    .flag-banner img {
+        max-width: 80px;
+    }
+}
 
-            width: 140px;
-            height: 140px;
-            background: var(--pk-white);
-            left: 0;
-            top: 0;
-            box-shadow: 0 0 24px rgba(255, 255, 255, .35);
-        }
+/* Medium devices (577px to 768px) */
+@media (min-width: 577px) and (max-width: 768px) {
+    .flag-banner {
+        flex-direction: row;
+        padding: 1.5rem;
+    }
+    .hero-title {
+        font-size: 1.8rem;
+    }
+    .tagline {
+        font-size: 1rem;
+    }
+    .flag-banner img {
+        max-width: 100px;
+    }
+}
 
-        .crescent::after {
+/* Large devices (769px to 1200px) */
+@media (min-width: 769px) and (max-width: 1200px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+    .tagline {
+        font-size: 1.1rem;
+    }
+    .flag-banner img {
+        max-width: 110px;
+    }
+}
 
-            width: 140px;
-            height: 140px;
-            background: linear-gradient(90deg, transparent 0 18%, var(--pk-green) 18% 100%);
-            left: 26px;
-            top: -10px;
-            filter: blur(.2px);
-        }
-
-        .star {
-            position: absolute;
-            right: 6%;
-            top: 26%;
-            width: 0;
-            height: 0;
-            filter: drop-shadow(0 0 12px rgba(255, 255, 255, .75));
-        }
-
-        .star::before {
-            content: "\2605";
-            /* ★ */
-            color: var(--pk-white);
-            font-size: 58px;
-            display: block;
-            transform: rotate(18deg);
-        }
+/* Extra large devices (1201px and above) */
+@media (min-width: 1201px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    .tagline {
+        font-size: 1.2rem;
+    }
+    .flag-banner img {
+        max-width: 140px;
+    }
+}
 
 
         .hero-title {
@@ -225,7 +276,6 @@
             }
         }
 
-        /* Fireworks canvas sits on top */
         #fireworks {
             position: fixed;
             inset: 0;
@@ -251,11 +301,9 @@
             style="background:var(--accent); border-color:transparent;">Celebrate Now</button>
     </div>
 
-   
-    <img src="assets/cresent.moon.cvn.png" alt="Pakistan Flag" 
-         style="position:absolute; right:5%; top:50%; transform:translateY(-50%); 
-                width:140px; height:auto; box-shadow:0 0 20px rgba(255,255,255,0.5); border-radius:4px;">
+    <img src="assets/cresent.moon.cvn.png" alt="Pakistan Flag">
 </section>
+
 
 
 
@@ -401,5 +449,7 @@
 
 </body>
 
-
 </html>
+
+
+
