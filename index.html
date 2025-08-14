@@ -52,6 +52,18 @@
             }
         }
 
+        .audio-section {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 1rem;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        audio {
+            width: 100%;
+            margin-top: 1rem;
+        }
 
         .flag-banner {
             position: relative;
@@ -103,7 +115,7 @@
             box-shadow: inset 0 -12px 30px rgba(0, 0, 0, .25);
             isolation: isolate;
             flex-wrap: wrap;
-        
+
         }
 
         .flag-banner img {
@@ -137,24 +149,46 @@
         }
 
 
-        @media (max-width: 480px) {
-            .hero-title {
-                font-size: 1.5rem;
-                margin-left:50px ;
-            }
+       @media (min-width: 300px) {
+    .flag-banner {
+        flex-direction: row; /* row me align */
+        align-items: center; /* vertical center */
+        justify-content: center; /* horizontally center */
+        gap: 0.5rem; /* thodi gap button aur image ke beech */
+        padding: 0.5rem;
+    }
 
-            .tagline {
-                font-size: 0.95rem;
-                margin-left: 50px;
-            }
+    .hero-title {
+        font-size: 1.5rem;
+        margin: 0; /* remove left margin */
+    }
 
-            .flag-banner img {
-                max-width: 30px;
-            }
-        }
+    .tagline {
+        font-size: 0.95rem;
+        margin: 0; /* remove left margin */
+    }
 
-       
-        @media (min-width: 577px) and (max-width: 768px) {
+    .flag-banner img {
+        max-width: 30px; /* thoda bara flag */
+        height: auto;
+        margin: 0; /* remove top margin */
+    }
+
+    #celebrateBtn {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.8rem;
+    }
+
+    .flag-banner .text-center {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.3rem;
+    }
+}
+
+
+        @media (min-width: 480px) and (max-width: 768px) {
             .flag-banner {
                 flex-direction: row;
                 padding: 1.5rem;
@@ -173,7 +207,7 @@
             }
         }
 
- 
+
         @media (min-width: 769px) and (max-width: 1200px) {
             .hero-title {
                 font-size: 2rem;
@@ -300,7 +334,15 @@
 
 <body>
     <canvas id="fireworks"></canvas>
-
+    <div class="audio-section">
+        <h2>🎵 Enjoy the Music 🎵</h2>
+        <p>Audio will play automatically when the page loads.</p>
+        <audio id="backgroundAudio" controls autoplay loop>
+            <source src="assets/Pakistan Official National Anthem-Master.wav" type="audio/mpeg">
+            <source src="assets/your-audio.mp4" type="audio/mp4">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
     <section class="flag-banner">
         <div class="text-center px-3">
             <h1 class="display-5 hero-title">Pakistan Zindabad! 🇵🇰</h1>
@@ -386,6 +428,7 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
     <script>
 
 
@@ -454,10 +497,9 @@
             document.getElementById('playAnthem').addEventListener('click', start);
         })();
     </script>
-
+    <script src="index.js"></script>
 
 </body>
 
 </html>
-
 
